@@ -6,13 +6,11 @@ public abstract class AbstractGoku extends CharacterAbstract {
     private int solidLevel;
     private int starveLevel;
     private int fatigueLevel;
-    private int happiness;
-    private int sadness;
+    private int happinessLevel;
     private int mentalHealth; //sad y happy?
-    private int fitness;
-    private int fatness;
+    private int fitnessLevel;
     private int speed;
-    private IHealthStateListing healthStates;
+    private IStateListing healthStates;
     private IStrategyListing behaviours;
     private IStrategyListing sicknesses;
 }
