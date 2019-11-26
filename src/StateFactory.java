@@ -1,3 +1,5 @@
+import CharacterAffector.CharacterStates.IState;
+
 public class StateFactory {
 
     IState getState(States state){

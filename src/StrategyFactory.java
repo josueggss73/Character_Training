@@ -1,3 +1,5 @@
+import CharacterAffector.IStrategy;
+
 public class StrategyFactory {
 
     IStrategy getStrategy(Strategies strategy){

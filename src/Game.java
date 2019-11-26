@@ -1,4 +1,6 @@
 import BoardElement.IBoardElement;
+import CharacterAffector.IStateListing;
+import CharacterAffector.IStrategyListing;
 
 public class Game implements IModel{
     private IBoardElement mainCharacter;
@@ -9,6 +11,7 @@ public class Game implements IModel{
     private Game singleton;
     private ControllerMessageHandler controllerMessageHandler;
     private ILogListing logs;
+    private int time;
 
     //falta implementar
     private Game() {

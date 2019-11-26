@@ -1,4 +1,6 @@
 import BoardElement.Character.CharacterAbstract;
+import CharacterAffector.IStateListing;
+import CharacterAffector.IStrategyListing;
 
 public abstract class AbstractGoku extends CharacterAbstract {
     private int age;
