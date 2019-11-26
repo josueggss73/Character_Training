@@ -1,4 +1,4 @@
-package StatesAffector;
+package StatesAffector.Edibles;
 
 import BoardElement.IBoardElement;
 import StatesAffector.CureAffector.ICure;
