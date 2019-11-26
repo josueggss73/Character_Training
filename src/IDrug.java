@@ -1,3 +1,5 @@
+import BoardElement.IBoardElement;
+
 public interface IDrug extends IEdible{
-    String getName();
+    void drug(IBoardElement boardElement);
 }

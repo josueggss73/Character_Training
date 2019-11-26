@@ -13,7 +13,7 @@ public class CharacterProxy implements IBoardElement {
     @Override
     public void interact(IBoardElement iBoardElement) {
         character.interact(null);
-        log.generateLog(); //ver si necesita pasar por parametro
+        log.generateLog();
         Game.getInstance().addLog(log);
     }
 }

@@ -1,5 +1,6 @@
+import BoardElement.IBoardElement;
+
 public interface IEdible extends ICure{
-    int getSolidContent();
-    int getLiquidContent();
     String getName();
+    void ingest(IBoardElement boardElement);
 }

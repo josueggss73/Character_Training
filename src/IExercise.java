@@ -1,4 +1,5 @@
+import BoardElement.IBoardElement;
+
 public interface IExercise extends ICure {
-    IExercise getExercise();
-    String getName();
+    void workout(IBoardElement boardElement);
 }
