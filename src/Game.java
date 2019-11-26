@@ -4,16 +4,17 @@ public class Game implements IModel{
     private IBoardElement mainCharacter;
     private IStrategyListing sicknessesAvailable;
     private IStateListing healthStatesAvailable;
-    private IStateListing behavioursAvailable;
+    private IStrategyListing behavioursAvailable;
     private CharacterCreationComponent creationAPI;
     private Game singleton;
+    private ControllerMessageHandler controllerMessageHandler;
+    private ILogListing logs;
 
     //falta implementar
     private Game() {
     }
 
-    @Override
-    public IModel getInstance() {
+    public static IModel getInstance() {
         return null;
     }
 
@@ -25,5 +26,13 @@ public class Game implements IModel{
     @Override
     public void writeMemory() {
 
+    }
+
+    public IBoardElement getMainCharacter() {
+        return mainCharacter;
+    }
+
+    public void addLog(ILog log){
+        logs.addLog(log);
     }
 }

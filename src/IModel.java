@@ -1,5 +1,9 @@
+import BoardElement.IBoardElement;
+
 public interface IModel {
-    IModel getInstance();
+    //IModel getInstance();
     void readMemory();
     void writeMemory();
+    IBoardElement getMainCharacter();
+    void addLog(ILog log);
 }
