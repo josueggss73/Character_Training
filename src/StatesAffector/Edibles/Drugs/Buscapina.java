@@ -12,11 +12,6 @@ public class Buscapina  implements IDrug, IEdible, ICure {
     }
 
     @Override
-    public ICure getCure() {
-        return null;
-    }
-
-    @Override
     public IBoardElement cure(IBoardElement boardElement) {
         return null;
     }
@@ -39,5 +34,10 @@ public class Buscapina  implements IDrug, IEdible, ICure {
     @Override
     public IPrototype deepClone() {
         return null;
+    }
+
+    @Override
+    public void interact(IBoardElement iBoardElement) {
+
     }
 }

@@ -1,6 +1,7 @@
 package Model.CharacterAffector;
 
 import Model.CharacterAffector.CharacterStates.IState;
+import Model.States;
 import Patterns.IPrototype;
 
 import java.util.ArrayList;
@@ -20,6 +21,15 @@ public class StateArray implements IStateListing {
     @Override
     public void addState(IState state) {
         states.add(state);
+    }
+
+    @Override
+    public void deleteState(States state) {
+        for (int i=0; i<states.size(); i++){
+            if(states.get(i).getName().equals(state)){
+                states.remove(i);
+            }
+        }
     }
 
     @Override

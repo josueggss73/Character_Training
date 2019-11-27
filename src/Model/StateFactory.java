@@ -1,11 +1,20 @@
 package Model;
 
+import Model.CharacterAffector.CharacterStates.DefaultState;
+import Model.CharacterAffector.CharacterStates.Happy;
 import Model.CharacterAffector.CharacterStates.IState;
+import Model.CharacterAffector.CharacterStates.Sad;
 
 public class StateFactory {
 
-    IState getState(States state){
-        //if state.equals(Model.States.loquesea)
-        return null;
+    public IState getState(States state){
+        switch (state){
+            case HAPPY:
+                return new Happy();
+            case SAD:
+                return new Sad();
+            default:
+                return new DefaultState();
+        }
     }
 }
