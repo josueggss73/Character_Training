@@ -9,6 +9,7 @@ import Model.CharacterAffector.IStrategyListing;
 import StatesAffector.CureAffector.ICure;
 
 public  class AbstractGoku extends CharacterAbstract {
+
     private int age;
     private int liquidLevel;
     private int solidLevel;

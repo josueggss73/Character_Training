@@ -4,7 +4,7 @@ import BoardElement.IBoardElement;
 import Model.CharacterAffector.CharacterStrategies.ILog;
 import StatesAffector.ICureListing;
 
-public interface IModel {
+public interface IModel extends IMemento {
     void readMemory();
     void writeMemory();
     IBoardElement getMainCharacter();
