@@ -1,6 +1,7 @@
 package Model;
 
 import Model.CharacterAffector.CharacterStrategies.Behaviours.*;
+import Model.CharacterAffector.CharacterStrategies.Sicknesses.*;
 import Model.CharacterAffector.CharacterStrategies.Strategies;
 import Model.CharacterAffector.IStrategy;
 import com.sun.org.apache.regexp.internal.RE;
@@ -33,11 +34,17 @@ public class StrategyFactory {
 
             //SICKNESSES
             case MUSCLE_PAIN:
+                return new MusclePain();
             case DIHARREA:
+                return new Diharrea();
             case DEPRESSION:
+                return new Depression();
             case EXHAUSTION:
+                return new Exhaustion();
             case HEADACHE:
+                return new Headache();
             case FRACTURE:
+                return new Fracture();
         }
 
         //strategy.equals(Model.CharacterAffector.CharacterStrategies.Strategies.loquesea)
