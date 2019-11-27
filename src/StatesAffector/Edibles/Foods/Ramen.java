@@ -7,7 +7,6 @@ import Model.StateFactory;
 import Model.States;
 import Patterns.IPrototype;
 import StatesAffector.CureAffector.ICure;
-import StatesAffector.Edibles.Drugs.IDrug;
 import StatesAffector.Edibles.IEdible;
 
 public class Ramen  implements IFood, IEdible, ICure {
@@ -55,11 +54,11 @@ public class Ramen  implements IFood, IEdible, ICure {
             IState newState= stateFactory.getState(States.SATISFIED);
             IState newState2= stateFactory.getState(States.ENERGIZED);
             //
-            ((AbstractGoku) boardElement).getHealthStates().addState(newState);
-            ((AbstractGoku) boardElement).getHealthStates().addState(newState2);
+            ((AbstractGoku) boardElement).getStates().addState(newState);
+            ((AbstractGoku) boardElement).getStates().addState(newState2);
 
-            ((AbstractGoku) boardElement).getHealthStates().deleteState(States.SAD);
-            ((AbstractGoku) boardElement).getHealthStates().deleteState(States.STARVING);
+            ((AbstractGoku) boardElement).getStates().deleteState(States.SAD);
+            ((AbstractGoku) boardElement).getStates().deleteState(States.STARVING);
 
             //
             int newLiquidLevel = newState.getLiquidLevel();

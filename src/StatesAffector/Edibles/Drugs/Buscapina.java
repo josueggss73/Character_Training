@@ -20,8 +20,8 @@ public class Buscapina  implements IDrug, IEdible, ICure {
             StateFactory stateFactory = new StateFactory();
             IState newState= stateFactory.getState(States.HAPPY);
             //
-            ((AbstractGoku) boardElement).getHealthStates().addState(newState);
-            ((AbstractGoku) boardElement).getHealthStates().deleteState(States.SHITURGENCY);
+            ((AbstractGoku) boardElement).getStates().addState(newState);
+            ((AbstractGoku) boardElement).getStates().deleteState(States.SHIT_URGENCY);
 
             //
             int newLiquidLevel = newState.getLiquidLevel();

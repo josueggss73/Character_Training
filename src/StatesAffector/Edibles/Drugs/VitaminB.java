@@ -19,8 +19,8 @@ public class VitaminB  implements IDrug, IEdible, ICure {
             StateFactory stateFactory = new StateFactory();
             IState newState= stateFactory.getState(States.ENERGIZED);
             //
-            ((AbstractGoku) boardElement).getHealthStates().addState(newState);
-            ((AbstractGoku) boardElement).getHealthStates().deleteState(States.TIRED);
+            ((AbstractGoku) boardElement).getStates().addState(newState);
+            ((AbstractGoku) boardElement).getStates().deleteState(States.TIRED);
 
             //
             int newLiquidLevel = newState.getLiquidLevel();

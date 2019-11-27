@@ -1,11 +1,16 @@
 package Model;
 
-import Model.CharacterAffector.IStrategyListing;
+import Model.CharacterAffector.IStateListing;
+import Model.CharacterAffector.StateArray;
 
 public class StateListingFactory {
 
-    public IStrategyListing getStateListing(StateListings stateListing){
+    public IStateListing getStateListing(StateListings stateListing){
         //if stateListing.equals(Model.StateListings.loquesea)
+        switch (stateListing){
+            case ARRAY:
+                return new StateArray();
+        }
         return null;
     }
 }

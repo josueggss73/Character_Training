@@ -20,4 +20,5 @@ public interface IState extends IPrototype<IState> {
     int getSicknessProbability();
     int getPhysicalHealthMax();
     int getMentalHealthMax();
+    String toString();
 }
