@@ -1,5 +1,5 @@
 package Model;
 
 public enum Cures {
-    SHIT;
+    LOOSE_SOLIDS, LOOSE_LIQUID, REST
 }

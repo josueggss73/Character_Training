@@ -1,7 +1,8 @@
 package Model.CharacterAffector.CharacterStrategies.Behaviours;
 
+import Model.CharacterAffector.CharacterStrategies.Strategies;
 import Model.CharacterAffector.IStrategy;
 
 public interface IBehaviour extends IStrategy {
-    String getName();
+    Strategies getName();
 }

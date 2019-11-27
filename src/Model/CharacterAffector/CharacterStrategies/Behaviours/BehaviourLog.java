@@ -2,6 +2,7 @@ package Model.CharacterAffector.CharacterStrategies.Behaviours;
 
 import BoardElement.IBoardElement;
 import Model.CharacterAffector.CharacterStrategies.ILog;
+import Patterns.IPrototype;
 
 import java.util.Date;
 
@@ -21,4 +22,5 @@ public class BehaviourLog implements ILog {
         details = "necesito modificarme";
         return details;
     }
+
 }
