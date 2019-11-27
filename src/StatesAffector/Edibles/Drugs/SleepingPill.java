@@ -18,10 +18,10 @@ public class SleepingPill  implements IDrug, IEdible, ICure {
     public void drug(IBoardElement boardElement) {
         if(boardElement instanceof AbstractGoku){
             StateFactory stateFactory = new StateFactory();
-            IState newState= stateFactory.getState(States.HAPPY);
+            IState newState= stateFactory.getState(States.TIRED);
             //
             ((AbstractGoku) boardElement).getHealthStates().addState(newState);
-            ((AbstractGoku) boardElement).getHealthStates().deleteState(States.TIRED);
+            ((AbstractGoku) boardElement).getHealthStates().deleteState(States.ENERGIZED);
 
             //
             int newLiquidLevel = newState.getLiquidLevel();

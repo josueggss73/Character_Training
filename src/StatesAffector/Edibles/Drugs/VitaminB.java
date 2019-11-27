@@ -13,12 +13,11 @@ import StatesAffector.Edibles.IEdible;
 public class VitaminB  implements IDrug, IEdible, ICure {
     private ILog log;
 
-
     @Override
     public void drug(IBoardElement boardElement) {
         if(boardElement instanceof AbstractGoku){
             StateFactory stateFactory = new StateFactory();
-            IState newState= stateFactory.getState(States.ENERG);
+            IState newState= stateFactory.getState(States.ENERGIZED);
             //
             ((AbstractGoku) boardElement).getHealthStates().addState(newState);
             ((AbstractGoku) boardElement).getHealthStates().deleteState(States.TIRED);
