@@ -50,6 +50,7 @@ public class Game implements IModel{
     private ICureListing cellar;
     private ICureListing horchard;
 
+    private CareTaker careTaker;
 
 
     //falta implementar
@@ -67,7 +68,27 @@ public class Game implements IModel{
         availableCharacters = new CharacterArray();
         strategiesAvailable = new StrategyArray();
         healthStatesAvailable = new StateArray();
+
+        careTaker = new CareTaker();
         readMemory();
+    }
+
+    public Game(ICharacter mainCharacter, ICharacterListing availableCharacters, IStrategyListing strategiesAvailable, IStateListing healthStatesAvailable, CharacterCreationComponent creationAPI, ControllerMessageHandler controllerMessageHandler, ILogListing logs, int day, int year, String timeHour, int daysPerYear, int minutesPerDay, ICureListing cellar, ICureListing horchard, CareTaker careTaker) {
+        this.mainCharacter = mainCharacter;
+        this.availableCharacters = availableCharacters;
+        this.strategiesAvailable = strategiesAvailable;
+        this.healthStatesAvailable = healthStatesAvailable;
+        this.creationAPI = creationAPI;
+        this.controllerMessageHandler = controllerMessageHandler;
+        this.logs = logs;
+        this.day = day;
+        this.year = year;
+        this.timeHour = timeHour;
+        this.daysPerYear = daysPerYear;
+        this.minutesPerDay = minutesPerDay;
+        this.cellar = cellar;
+        this.horchard = horchard;
+        this.careTaker = careTaker;
     }
 
     public static IModel getInstance() {
@@ -293,5 +314,39 @@ public class Game implements IModel{
     private void cloneGokuFeatures(ICharacter newGoku){
         mainCharacter.setName(newGoku.getName());
         mainCharacter.setMedia(newGoku.getMedia());
+    }
+
+    public Memento save(){
+        //guardar tooooodo
+        ICharacter mainCharacterClone = (ICharacter) mainCharacter.deepClone();
+        IModel game = new Game();
+
+    }
+
+    /*private ICharacter mainCharacter;
+    private ICharacterListing availableCharacters; //for
+    private IStrategyListing strategiesAvailable; //for
+    private IStateListing healthStatesAvailable; //for
+
+    private CharacterCreationComponent creationAPI;
+
+    private static Game singleton;
+
+    private ControllerMessageHandler controllerMessageHandler;
+    private ILogListing logs;
+
+    private int day;
+    private int year;
+    private String timeHour;
+    private int daysPerYear;
+    private int minutesPerDay;
+
+    private ICureListing cellar;
+    private ICureListing horchard;
+
+    private CareTaker careTaker;*/
+
+    public void restore(Memento memento){
+        careTaker.get();
     }
 }
