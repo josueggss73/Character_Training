@@ -9,6 +9,10 @@ import java.util.ArrayList;
 public class StateArray implements IStateListing {
     private ArrayList<IState> states;
 
+    public StateArray() {
+        states = new ArrayList<>();
+    }
+
     public StateArray(ArrayList<IState> states) {
         this.states = states;
     }
@@ -51,5 +55,14 @@ public class StateArray implements IStateListing {
             clonedStates.add((IState) states.get(i).deepClone());
         }
         return new StateArray(clonedStates);
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+        for(int i=0; i<states.size(); i++){
+            result = result.concat(states.toString()+",  ");
+        }
+        return result;
     }
 }

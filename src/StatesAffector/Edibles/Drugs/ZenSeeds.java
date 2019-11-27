@@ -19,8 +19,8 @@ public class ZenSeeds implements IDrug, IEdible, ICure {
             StateFactory stateFactory = new StateFactory();
             IState newState= stateFactory.getState(States.DEFAULT);
             //
-            ((AbstractGoku) boardElement).getHealthStates().addState(newState);
-            ((AbstractGoku) boardElement).getHealthStates().deleteAllStates();
+            ((AbstractGoku) boardElement).getStates().addState(newState);
+            ((AbstractGoku) boardElement).getStates().deleteAllStates();
 
             //
             int newLiquidLevel = newState.getLiquidLevel();

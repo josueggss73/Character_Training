@@ -49,8 +49,8 @@ public class Moshroom implements IFood, IEdible, ICure {
             StateFactory stateFactory = new StateFactory();
             IState newState= stateFactory.getState(States.UNSATISFIED);
             //
-            ((AbstractGoku) boardElement).getHealthStates().addState(newState);
-            ((AbstractGoku) boardElement).getHealthStates().deleteState(States.HAPPY);
+            ((AbstractGoku) boardElement).getStates().addState(newState);
+            ((AbstractGoku) boardElement).getStates().deleteState(States.HAPPY);
 
             //
             int newLiquidLevel = newState.getLiquidLevel();

@@ -15,7 +15,8 @@ public class Game implements IModel{
     private Game singleton;
     private ControllerMessageHandler controllerMessageHandler;
     private ILogListing logs;
-    private int time;
+    private int timeDay;
+    private String timeHour;
 
     //falta implementar
     private Game() {
@@ -43,4 +44,13 @@ public class Game implements IModel{
         logs.addLog(log);
     }
 
+    @Override
+    public int getTimeDay(){
+        return timeDay;
+    }
+
+    @Override
+    public String getTimeHour() {
+        return timeHour;
+    }
 }

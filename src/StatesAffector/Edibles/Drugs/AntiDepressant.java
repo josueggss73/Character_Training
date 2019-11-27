@@ -1,11 +1,9 @@
 package StatesAffector.Edibles.Drugs;
 
-import BoardElement.Character.ICharacter;
 import BoardElement.IBoardElement;
 import Model.AbstractGoku;
 import Model.CharacterAffector.CharacterStates.IState;
 import Model.CharacterAffector.CharacterStrategies.ILog;
-import Model.GokuChild;
 import Model.StateFactory;
 import Model.States;
 import Patterns.IPrototype;
@@ -16,6 +14,8 @@ public class AntiDepressant implements IDrug, IEdible, ICure {
 
     private ILog log;
 
+    public AntiDepressant() {
+    }
 
     @Override
     public void drug(IBoardElement boardElement) {
@@ -23,8 +23,8 @@ public class AntiDepressant implements IDrug, IEdible, ICure {
             StateFactory stateFactory = new StateFactory();
             IState newState= stateFactory.getState(States.HAPPY);
             //
-            ((AbstractGoku) boardElement).getHealthStates().addState(newState);
-            ((AbstractGoku) boardElement).getHealthStates().deleteState(States.SAD);
+            ((AbstractGoku) boardElement).getStates().addState(newState);
+            ((AbstractGoku) boardElement).getStates().deleteState(States.SAD);
 
             //
             int newLiquidLevel = newState.getLiquidLevel();

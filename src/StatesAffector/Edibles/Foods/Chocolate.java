@@ -49,9 +49,9 @@ public class Chocolate implements IFood, IEdible, ICure {
             StateFactory stateFactory = new StateFactory();
             IState newState= stateFactory.getState(States.GLUTTONY);
             //
-            ((AbstractGoku) boardElement).getHealthStates().addState(newState);
-            ((AbstractGoku) boardElement).getHealthStates().deleteState(States.SAD);
-            ((AbstractGoku) boardElement).getHealthStates().deleteState(States.SHITURGENCY);
+            ((AbstractGoku) boardElement).getStates().addState(newState);
+            ((AbstractGoku) boardElement).getStates().deleteState(States.SAD);
+            ((AbstractGoku) boardElement).getStates().deleteState(States.SHIT_URGENCY);
 
             //
             int newLiquidLevel = newState.getLiquidLevel();

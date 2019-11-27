@@ -7,7 +7,6 @@ import Model.StateFactory;
 import Model.States;
 import Patterns.IPrototype;
 import StatesAffector.CureAffector.ICure;
-import StatesAffector.Edibles.Drugs.IDrug;
 import StatesAffector.Edibles.IEdible;
 
 public class Sugar  implements IFood, IEdible, ICure {
@@ -51,8 +50,8 @@ public class Sugar  implements IFood, IEdible, ICure {
             StateFactory stateFactory = new StateFactory();
             IState newState= stateFactory.getState(States.ENERGIZED);
             //
-            ((AbstractGoku) boardElement).getHealthStates().addState(newState);
-            ((AbstractGoku) boardElement).getHealthStates().deleteState(States.TIRED);
+            ((AbstractGoku) boardElement).getStates().addState(newState);
+            ((AbstractGoku) boardElement).getStates().deleteState(States.TIRED);
 
             //
             int newLiquidLevel = newState.getLiquidLevel();

@@ -8,4 +8,6 @@ public interface IModel {
     void writeMemory();
     IBoardElement getMainCharacter();
     void addLog(ILog log);
+    int getTimeDay();
+    String getTimeHour();
 }

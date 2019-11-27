@@ -22,7 +22,7 @@ public class ShitUrgency implements IState{
     private int mentalHealthMax;
 
     void ShitUrgency(){
-        name = States.SHITURGENCY;
+        name = States.SHIT_URGENCY;
         age = 0;
         liquidLevel = 0;
         solidLevel = 0;

@@ -19,7 +19,7 @@ public abstract class AbstractGoku extends CharacterAbstract {
     private int mentalHealth; //sad y happy?
     private int fitnessLevel;
     private int speed;
-    private IStateListing healthStates;
+    private IStateListing states;
     private IStrategyListing behaviours;
     private IStrategyListing sicknesses;
     private int sicknessProbability;
@@ -29,7 +29,7 @@ public abstract class AbstractGoku extends CharacterAbstract {
 
     private AbstractGoku currentEnemy;
 
-    public AbstractGoku(int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing healthStates, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
+    public AbstractGoku(int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing states, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
         this.age = age;
         this.liquidLevel = liquidLevel;
         this.solidLevel = solidLevel;
@@ -41,7 +41,7 @@ public abstract class AbstractGoku extends CharacterAbstract {
         this.mentalHealth = mentalHealth;
         this.fitnessLevel = fitnessLevel;
         this.speed = speed;
-        this.healthStates = healthStates;
+        this.states = states;
         this.behaviours = behaviours;
         this.sicknesses = sicknesses;
         this.sicknessProbability = sicknessProbability;
@@ -49,7 +49,7 @@ public abstract class AbstractGoku extends CharacterAbstract {
         this.mentalHealthMax = mentalHealthMax;
     }
 
-    public AbstractGoku(String name, float defaultLife, float decrementableLife, IToolListing tools, float level, float minPlayerLevelReq, float hitsPerUnit, int fields, int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing healthStates, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
+    public AbstractGoku(String name, float defaultLife, float decrementableLife, IToolListing tools, float level, float minPlayerLevelReq, float hitsPerUnit, int fields, int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing states, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
         super(name, defaultLife, decrementableLife, tools, level, minPlayerLevelReq, hitsPerUnit, fields);
         this.age = age;
         this.liquidLevel = liquidLevel;
@@ -62,7 +62,7 @@ public abstract class AbstractGoku extends CharacterAbstract {
         this.mentalHealth = mentalHealth;
         this.fitnessLevel = fitnessLevel;
         this.speed = speed;
-        this.healthStates = healthStates;
+        this.states = states;
         this.behaviours = behaviours;
         this.sicknesses = sicknesses;
         this.sicknessProbability = sicknessProbability;
@@ -70,7 +70,7 @@ public abstract class AbstractGoku extends CharacterAbstract {
         this.mentalHealthMax = mentalHealthMax;
     }
 
-    public AbstractGoku(String name, float defaultLife, float decrementableLife, IToolListing tools, float level, float minPlayerLevelReq, float hitsPerUnit, int fields, IMediaListing media, int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing healthStates, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
+    public AbstractGoku(String name, float defaultLife, float decrementableLife, IToolListing tools, float level, float minPlayerLevelReq, float hitsPerUnit, int fields, IMediaListing media, int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing states, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
         super(name, defaultLife, decrementableLife, tools, level, minPlayerLevelReq, hitsPerUnit, fields, media);
         this.age = age;
         this.liquidLevel = liquidLevel;
@@ -83,7 +83,7 @@ public abstract class AbstractGoku extends CharacterAbstract {
         this.mentalHealth = mentalHealth;
         this.fitnessLevel = fitnessLevel;
         this.speed = speed;
-        this.healthStates = healthStates;
+        this.states = states;
         this.behaviours = behaviours;
         this.sicknesses = sicknesses;
         this.sicknessProbability = sicknessProbability;
@@ -91,7 +91,7 @@ public abstract class AbstractGoku extends CharacterAbstract {
         this.mentalHealthMax = mentalHealthMax;
     }
 
-    public AbstractGoku(String name, float defaultLife, int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing healthStates, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
+    public AbstractGoku(String name, float defaultLife, int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing states, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
         super(name, defaultLife);
         this.age = age;
         this.liquidLevel = liquidLevel;
@@ -104,7 +104,7 @@ public abstract class AbstractGoku extends CharacterAbstract {
         this.mentalHealth = mentalHealth;
         this.fitnessLevel = fitnessLevel;
         this.speed = speed;
-        this.healthStates = healthStates;
+        this.states = states;
         this.behaviours = behaviours;
         this.sicknesses = sicknesses;
         this.sicknessProbability = sicknessProbability;
@@ -205,12 +205,12 @@ public abstract class AbstractGoku extends CharacterAbstract {
         this.speed = speed;
     }
 
-    public IStateListing getHealthStates() {
-        return healthStates;
+    public IStateListing getStates() {
+        return states;
     }
 
-    public void setHealthStates(IStateListing healthStates) {
-        this.healthStates = healthStates;
+    public void setStates(IStateListing states) {
+        this.states = states;
     }
 
     public IStrategyListing getBehaviours() {

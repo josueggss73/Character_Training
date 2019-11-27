@@ -26,7 +26,7 @@ public class StateFactory {
                 return new Hidrated();
             case UNSATISFIED:
                 return new Unsatisfied();
-            case SHITURGENCY:
+            case SHIT_URGENCY:
                 return new ShitUrgency();
             case DEHYDRATED:
                 return new Dehydrated();
