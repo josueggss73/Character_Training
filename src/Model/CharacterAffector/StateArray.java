@@ -33,6 +33,13 @@ public class StateArray implements IStateListing {
     }
 
     @Override
+    public void deleteAllStates() {
+        for (int i=0; i<states.size(); i++){
+            states.remove(i);
+        }
+    }
+
+    @Override
     public IPrototype clone() {
         return null;
     }

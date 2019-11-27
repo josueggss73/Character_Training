@@ -1,9 +1,6 @@
 package Model;
 
-import Model.CharacterAffector.CharacterStates.DefaultState;
-import Model.CharacterAffector.CharacterStates.Happy;
-import Model.CharacterAffector.CharacterStates.IState;
-import Model.CharacterAffector.CharacterStates.Sad;
+import Model.CharacterAffector.CharacterStates.*;
 
 public class StateFactory {
 
@@ -13,8 +10,16 @@ public class StateFactory {
                 return new Happy();
             case SAD:
                 return new Sad();
-            default:
+            case SHITURGENCY:
+                return new ShitUrgency();
+            case DEHYDRATED:
+                return new Dehydrated();
+            case INJURED:
+                return new Injured();
+            case DEFAULT:
                 return new DefaultState();
+            default:
+                return null;
         }
     }
 }
