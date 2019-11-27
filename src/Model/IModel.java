@@ -9,8 +9,12 @@ public interface IModel {
     void writeMemory();
     IBoardElement getMainCharacter();
     void addLog(ILog log);
-    int getTimeDay();
+    int getDay();
+    int getYear();
     String getTimeHour();
     ControllerMessageHandler getHandler();
     ICureListing getCellar();
+    void finishDayCycle();
+    void setDaysPerYear(int value);
+    void setMinutesPerDay(int value);
 }

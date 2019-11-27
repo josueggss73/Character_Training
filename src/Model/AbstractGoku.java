@@ -348,6 +348,13 @@ public abstract class AbstractGoku extends CharacterAbstract {
         else{
             this.mentalHealthMax = this.mentalHealthMax + newMentalHealthMax;
         }
-    };
+    }
 
+    public void endDay(){
+        sumLiquidLevel(5);
+        sumSolidLevel(5);
+        sumStarveLevel(10);
+        sumThirstLevel(10);
+        sumFatigueLevel(50);
+    }
 }

@@ -24,10 +24,14 @@ public class Game implements IModel{
     private ControllerMessageHandler controllerMessageHandler;
     private ILogListing logs;
 
-    private int timeDay;
+    private int day;
+    private int year;
     private String timeHour;
+    private int daysPerYear;
+    private int minutesPerDay;
 
     private ICureListing cellar;
+    private ICureListing horchard;
 
     //falta implementar
     private Game() {
@@ -35,9 +39,11 @@ public class Game implements IModel{
         creationAPI = CharacterCreationComponent.getInstance();
         controllerMessageHandler = new ControllerMessageHandler();
         logs = new LogArray();
-        timeDay = 0;
+        day = 0;
+        year = 0;
         timeHour = "00:00:01";
         cellar = new CureArray();
+        horchard = new CureArray();
     }
 
     public static IModel getInstance() {
@@ -66,8 +72,13 @@ public class Game implements IModel{
     }
 
     @Override
-    public int getTimeDay(){
-        return timeDay;
+    public int getDay(){
+        return day;
+    }
+
+    @Override
+    public int getYear() {
+        return year;
     }
 
     @Override
@@ -84,4 +95,23 @@ public class Game implements IModel{
     public ICureListing getCellar() {
         return cellar;
     }
+
+    @Override
+    public void finishDayCycle() {
+        if(day%daysPerYear == 0){ //si se cumple un año
+            year++;
+        }
+        ((AbstractGoku) mainCharacter).endDay();
+    }
+
+    @Override
+    public void setDaysPerYear(int value) {
+        daysPerYear = value;
+    }
+
+    @Override
+    public void setMinutesPerDay(int value) {
+        minutesPerDay = value;
+    }
+
 }
