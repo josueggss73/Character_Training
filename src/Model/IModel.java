@@ -10,4 +10,5 @@ public interface IModel {
     void addLog(ILog log);
     int getTimeDay();
     String getTimeHour();
+    ControllerMessageHandler getHandler();
 }
