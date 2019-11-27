@@ -21,7 +21,7 @@ public class Tired implements IState {
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Tired(){
+    public Tired(){
         name = States.TIRED;
         age = 0;
         liquidLevel = 0;

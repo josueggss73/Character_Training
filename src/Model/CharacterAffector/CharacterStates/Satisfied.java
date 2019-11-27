@@ -21,7 +21,7 @@ public class Satisfied implements IState {
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Satisfied(){
+    public Satisfied(){
         name = States.SATISFIED;
         age = 0;
         liquidLevel = 0;

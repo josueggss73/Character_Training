@@ -22,7 +22,7 @@ public class Sad implements  IState{
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Sad(){
+    public Sad(){
         name = States.SAD;
         age = 0;
         liquidLevel = 0;

@@ -17,6 +17,7 @@ import Media.IMediaElement;
 import Media.IMediaListing;
 import Media.MediaElementFactory;
 import Media.MediaListingFactory;
+import Model.CharacterAffector.CharacterStates.IState;
 import Model.CharacterAffector.CharacterStrategies.ILog;
 import Model.CharacterAffector.CharacterStrategies.Strategies;
 import Model.CharacterAffector.IStateListing;
@@ -201,14 +202,17 @@ public class Game implements IModel{
         StrategyFactory strategyFactory = new StrategyFactory();
         for (int i = 0; i< Strategies.values().length; i++){
             strategiesAvailable.addStrategy(strategyFactory.getStrategy(Strategies.values()[i]));
-            System.out.println("Estoy metiendo una nueva estrategia:" + strategyFactory.getStrategy(Strategies.values()[i]));
+            System.out.println("Estoy metiendo una nueva estrategia:" + strategyFactory.getStrategy(Strategies.values()[i]).toString());
         }
 
         StateFactory stateFactory = new StateFactory();
         for (int i = 0; i< States.values().length; i++){
-            healthStatesAvailable.addState(stateFactory.getState(States.values()[i]));
-            System.out.println("Estoy metiendo un nuevo estado:" + stateFactory.getState(States.values()[i]));
+            IState newState = stateFactory.getState(States.values()[i]);
+            healthStatesAvailable.addState(newState);
+            System.out.println("Estoy metiendo un nuevo estado:" + newState.getSicknessProbability());
+            System.out.println("Tengo:" + healthStatesAvailable.getSize());
         }
+
 
     }
 

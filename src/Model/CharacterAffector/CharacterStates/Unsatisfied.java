@@ -21,7 +21,7 @@ public class Unsatisfied implements IState {
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Unsatisfied(){
+    public Unsatisfied(){
         name = States.UNSATISFIED;
         age = 0;
         liquidLevel = 0;

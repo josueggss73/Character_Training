@@ -21,12 +21,12 @@ public class DefaultState implements IState{
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void DefaultState(){
+    public DefaultState(){
         name = States.DEFAULT;
         age = 0;
-        liquidLevel = 0;
+        liquidLevel = 20;
         solidLevel = 0;
-        starveLevel = 0;
+        starveLevel = 10;
         thirstLevel = 0;
         fatigueLevel = -10;
         happinessLevel = 10;

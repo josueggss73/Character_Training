@@ -44,6 +44,11 @@ public class StateArray implements IStateListing {
     }
 
     @Override
+    public int getSize() {
+        return states.size();
+    }
+
+    @Override
     public IPrototype clone() {
         return null;
     }

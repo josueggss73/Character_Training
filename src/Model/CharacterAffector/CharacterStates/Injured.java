@@ -21,7 +21,7 @@ public class Injured implements IState{
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Injured(){
+    public Injured(){
         name = States.INJURED;
         age = 0;
         liquidLevel = 0;

@@ -21,7 +21,7 @@ public class FoodResigned implements IState{
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void FoodResigned(){
+    public FoodResigned(){
         name = States.FOOD_RESIGNED;
         age = 0;
         liquidLevel = 0;

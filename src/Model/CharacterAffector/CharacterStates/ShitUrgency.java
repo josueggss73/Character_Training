@@ -21,7 +21,7 @@ public class ShitUrgency implements IState{
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void ShitUrgency(){
+    public ShitUrgency(){
         name = States.SHIT_URGENCY;
         age = 0;
         liquidLevel = 0;

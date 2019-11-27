@@ -9,5 +9,6 @@ public interface IStateListing extends IPrototype<IStateListing> {
     void addState(IState state);
     void deleteState(States state);
     void deleteAllStates();
+    int getSize();
     String toString();
 }
