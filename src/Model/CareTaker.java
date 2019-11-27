@@ -3,13 +3,13 @@ package Model;
 import java.util.ArrayList;
 
 public class CareTaker {
-    private ArrayList<IMemento> mementoList = new ArrayList<>();
+    private ArrayList<Memento> mementoList = new ArrayList<>();
 
-    public void add(IMemento state){
+    public void add(Memento state){
         mementoList.add(state);
     }
 
-    public IMemento get(int index){
+    public Memento get(int index){
         return mementoList.get(index);
     }
 }
