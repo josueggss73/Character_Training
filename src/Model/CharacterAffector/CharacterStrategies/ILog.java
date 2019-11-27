@@ -1,5 +1,7 @@
 package Model.CharacterAffector.CharacterStrategies;
 
-public interface ILog {
+import Patterns.IPrototype;
+
+public interface ILog extends IPrototype {
     String generateLog(String strategy);
 }

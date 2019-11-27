@@ -26,6 +26,7 @@ import Model.CharacterAffector.IStrategyListing;
 import Model.CharacterAffector.StateArray;
 import Model.CharacterAffector.StrategyArray;
 import StatesAffector.CureAffector.CureArray;
+import StatesAffector.CureAffector.ICure;
 import StatesAffector.ICureListing;
 
 public class Game implements IModel{
@@ -81,8 +82,8 @@ public class Game implements IModel{
         this.creationAPI = creationAPI;
         this.controllerMessageHandler = controllerMessageHandler;
         this.logs = logs;
-        this.day = day;
-        this.year = year;
+        this.day = 1;
+        this.year = 1;
         this.timeHour = timeHour;
         this.daysPerYear = daysPerYear;
         this.minutesPerDay = minutesPerDay;
@@ -300,6 +301,49 @@ public class Game implements IModel{
         minutesPerDay = value;
     }
 
+    public ICharacterListing getAvailableCharacters() {
+        return availableCharacters;
+    }
+
+    public IStrategyListing getStrategiesAvailable() {
+        return strategiesAvailable;
+    }
+
+    public IStateListing getHealthStatesAvailable() {
+        return healthStatesAvailable;
+    }
+
+    public CharacterCreationComponent getCreationAPI() {
+        return creationAPI;
+    }
+
+    public static Game getSingleton() {
+        return singleton;
+    }
+
+    public ControllerMessageHandler getControllerMessageHandler() {
+        return controllerMessageHandler;
+    }
+
+    public ILogListing getLogs() {
+        return logs;
+    }
+
+    public int getDaysPerYear() {
+        return daysPerYear;
+    }
+
+    public int getMinutesPerDay() {
+        return minutesPerDay;
+    }
+
+    public ICureListing getHorchard() {
+        return horchard;
+    }
+
+    public CareTaker getCareTaker() {
+        return careTaker;
+    }
 
     private ICharacter searchAvailableGoku(int age){
         for (int i=0; i<availableCharacters.getSize();i++){
@@ -319,34 +363,20 @@ public class Game implements IModel{
     public Memento save(){
         //guardar tooooodo
         ICharacter mainCharacterClone = (ICharacter) mainCharacter.deepClone();
-        IModel game = new Game();
+        ICharacterListing availableCharactersClone = (ICharacterListing) availableCharacters.deepClone();
+        IStrategyListing availableStrategiesClone = (IStrategyListing) strategiesAvailable.deepClone();
+        IStateListing statesAvailableClone = (IStateListing) healthStatesAvailable.deepClone();
 
+        ILogListing logsCloned = (ILogListing) logs.deepClone();
+        ICureListing cellarCloned = (ICureListing) cellar.deepClone();
+        ICureListing horchardCloned = (ICureListing) horchard.deepClone();
+        IModel newGame = new Game(mainCharacterClone, availableCharactersClone, availableStrategiesClone, statesAvailableClone, creationAPI, controllerMessageHandler, logsCloned, day, year, timeHour, daysPerYear, minutesPerDay, cellarCloned, horchardCloned, careTaker);
+        return (Memento) newGame;
     }
 
-    /*private ICharacter mainCharacter;
-    private ICharacterListing availableCharacters; //for
-    private IStrategyListing strategiesAvailable; //for
-    private IStateListing healthStatesAvailable; //for
-
-    private CharacterCreationComponent creationAPI;
-
-    private static Game singleton;
-
-    private ControllerMessageHandler controllerMessageHandler;
-    private ILogListing logs;
-
-    private int day;
-    private int year;
-    private String timeHour;
-    private int daysPerYear;
-    private int minutesPerDay;
-
-    private ICureListing cellar;
-    private ICureListing horchard;
-
-    private CareTaker careTaker;*/
 
     public void restore(Memento memento){
+        //implementar
         careTaker.get();
     }
 }

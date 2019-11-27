@@ -21,6 +21,13 @@ public class BehaviourLog implements ILog {
         hour = Game.getInstance().getTimeHour();
     }
 
+    public BehaviourLog(IBoardElement character, String details, int day, String hour) {
+        this.character = character;
+        this.details = details;
+        this.day = day;
+        this.hour = hour;
+    }
+
     @Override
     public String generateLog(String behaviour) {
         details = details.concat(behaviour+":   ");
@@ -30,4 +37,13 @@ public class BehaviourLog implements ILog {
         return details;
     }
 
+    @Override
+    public IPrototype clone() {
+        return null;
+    }
+
+    @Override
+    public IPrototype deepClone() {
+        return new BehaviourLog(character, details, day, hour);
+    }
 }
