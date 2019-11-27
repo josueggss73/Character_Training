@@ -1,30 +1,32 @@
 package Model.CharacterAffector.CharacterStrategies.Behaviours;
 
 import BoardElement.IBoardElement;
-import Model.*;
 import Model.CharacterAffector.CharacterStrategies.ILog;
 import Model.CharacterAffector.CharacterStrategies.Strategies;
+import Model.CureFactory;
+import Model.Cures;
+import Model.Game;
 import Patterns.IPrototype;
 import StatesAffector.CureAffector.ICure;
 
-public class Shit implements IBehaviour {
-
+public class GetSick implements IBehaviour {
     private ILog log;
     private Strategies name;
 
-    public Shit() {
-        name = Strategies.SHIT;
+    public GetSick() {
+        name = Strategies.GET_SICK;
     }
 
     @Override
     public Strategies getName() {
-        return null;
+        return name;
     }
 
     @Override
     public void doSomething(IBoardElement boardElement) {
         CureFactory cureFactory = new CureFactory();
-        ICure cure = cureFactory.getCure(Cures.LOOSE_SOLIDS);
+        //PREGUNTAR SI ACEPTA ENFERMEDAD O NO
+        ICure cure = cureFactory.getCure(Cures.ACCEPT_SICKNESS);
         cure.cure(boardElement);
         log = new BehaviourLog(boardElement);
         String newLog = log.generateLog(); //la variable se puede usar para printear
@@ -38,6 +40,6 @@ public class Shit implements IBehaviour {
 
     @Override
     public IPrototype deepClone() {
-        return new Shit();
+        return new GetSick();
     }
 }

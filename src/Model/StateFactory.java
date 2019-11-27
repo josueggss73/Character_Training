@@ -1,9 +1,6 @@
 package Model;
 
-import Model.CharacterAffector.CharacterStates.DefaultState;
-import Model.CharacterAffector.CharacterStates.Happy;
-import Model.CharacterAffector.CharacterStates.IState;
-import Model.CharacterAffector.CharacterStates.Sad;
+import Model.CharacterAffector.CharacterStates.*;
 
 public class StateFactory {
 
@@ -13,8 +10,34 @@ public class StateFactory {
                 return new Happy();
             case SAD:
                 return new Sad();
-            default:
+            case ENERGIZED:
+                return new Energized();
+            case TIRED:
+                return new Tired();
+            case STARVING:
+                return new Starving();
+            case GLUTTONY:
+                return new Gluttony();
+            case FOOD_RESIGNED:
+                return new FoodResigned();
+            case SATISFIED:
+                return new Satisfied();
+            case HIDRATED:
+                return new Hidrated();
+            case UNSATISFIED:
+                return new Unsatisfied();
+            case SHIT_URGENCY:
+                return new ShitUrgency();
+            case DEHYDRATED:
+                return new Dehydrated();
+            case INJURED:
+                return new Injured();
+            case INPAIN:
+                return new InPain();
+            case DEFAULT:
                 return new DefaultState();
+            default:
+                return null;
         }
     }
 }

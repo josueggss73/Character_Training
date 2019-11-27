@@ -3,7 +3,7 @@ package Model.CharacterAffector.CharacterStates;
 import Model.States;
 import Patterns.IPrototype;
 
-public class Energized implements IState{
+public class Satisfied implements IState {
     private States name;
     private int age;
     private int liquidLevel;
@@ -21,8 +21,8 @@ public class Energized implements IState{
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Energized(){
-        name = States.ENERGIZED;
+    void Satisfied(){
+        name = States.SATISFIED;
         age = 0;
         liquidLevel = 0;
         solidLevel = 0;
@@ -39,80 +39,79 @@ public class Energized implements IState{
         mentalHealthMax = 0;
     }
 
-
     @Override
     public States getName() {
-        return name;
+        return null;
     }
 
     @Override
     public int getAge() {
-        return age;
+        return 0;
     }
 
     @Override
     public int getLiquidLevel() {
-        return liquidLevel;
+        return 0;
     }
 
     @Override
     public int getSolidLevel() {
-        return solidLevel;
+        return 0;
     }
 
     @Override
     public int getStarveLevel() {
-        return starveLevel;
+        return 0;
     }
 
     @Override
     public int getThirstLevel() {
-        return thirstLevel;
+        return 0;
     }
 
     @Override
     public int getFatigueLevel() {
-        return fatigueLevel;
+        return 0;
     }
 
     @Override
     public int getHappinessLevel() {
-        return happinessLevel;
+        return 0;
     }
 
     @Override
     public int getPhysicalHealth() {
-        return physicalHealth;
+        return 0;
     }
 
     @Override
     public int getMentalHealth() {
-        return mentalHealth;
+        return 0;
     }
 
     @Override
     public int getFitnessLevel() {
-        return fitnessLevel;
+        return 0;
     }
 
     @Override
     public int getSpeed() {
-        return speed;
+        return 0;
     }
 
     @Override
     public int getSicknessProbability() {
-        return sicknessProbability;
+        return 0;
     }
 
     @Override
     public int getPhysicalHealthMax() {
-        return physicalHealthMax;
+        return 0;
     }
 
     @Override
     public int getMentalHealthMax() {
-        return mentalHealthMax;
+        return 0;
     }
 
     @Override

@@ -3,7 +3,7 @@ package Model.CharacterAffector.CharacterStates;
 import Model.States;
 import Patterns.IPrototype;
 
-public class Energized implements IState{
+public class InPain implements IState{
     private States name;
     private int age;
     private int liquidLevel;
@@ -21,8 +21,8 @@ public class Energized implements IState{
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Energized(){
-        name = States.ENERGIZED;
+    void InPain(){
+        name = States.INPAIN;
         age = 0;
         liquidLevel = 0;
         solidLevel = 0;
