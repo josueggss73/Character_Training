@@ -131,7 +131,7 @@ public class Game implements IModel{
         toolListingGoku2.addTool(toolSkillGoku2);
 
         AbstractGoku goku2 = new AbstractGoku("Goku2",100,toolListingGoku2,imagesCharacterGoku2,
-                10,100,100,100,100,0,
+                15,100,100,100,100,0,
                 100,100,100,100,100,
                 100,100,100);
         System.out.printf("Soy:" + goku2.getName() + "\n");
@@ -161,7 +161,7 @@ public class Game implements IModel{
         toolListingGoku3.addTool(toolSkillGoku3);
 
         AbstractGoku goku3 = new AbstractGoku("Goku3",100,toolListingGoku3,imagesCharacterGoku3,
-                10,100,100,100,100,0,
+                20,100,100,100,100,0,
                 100,100,100,100,100,
                 100,100,100);
         System.out.printf("Soy:" + goku3.getName() + "\n");
