@@ -8,6 +8,8 @@ import BoardElement.IBoardElement;
 import Model.CharacterAffector.CharacterStrategies.ILog;
 import Model.CharacterAffector.IStateListing;
 import Model.CharacterAffector.IStrategyListing;
+import StatesAffector.CureAffector.CureArray;
+import StatesAffector.ICureListing;
 
 public class Game implements IModel{
     private ICharacter mainCharacter;
@@ -25,6 +27,8 @@ public class Game implements IModel{
     private int timeDay;
     private String timeHour;
 
+    private ICureListing cellar;
+
     //falta implementar
     private Game() {
         singleton = null;
@@ -33,6 +37,7 @@ public class Game implements IModel{
         logs = new LogArray();
         timeDay = 0;
         timeHour = "00:00:01";
+        cellar = new CureArray();
     }
 
     public static IModel getInstance() {
@@ -73,5 +78,10 @@ public class Game implements IModel{
     @Override
     public ControllerMessageHandler getHandler() {
         return controllerMessageHandler;
+    }
+
+    @Override
+    public ICureListing getCellar() {
+        return cellar;
     }
 }
