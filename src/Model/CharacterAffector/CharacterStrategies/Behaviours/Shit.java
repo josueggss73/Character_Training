@@ -3,18 +3,14 @@ package Model.CharacterAffector.CharacterStrategies.Behaviours;
 import BoardElement.IBoardElement;
 import Model.*;
 import Model.CharacterAffector.CharacterStrategies.ILog;
-import Model.CharacterAffector.IStrategy;
 import Patterns.IPrototype;
 import StatesAffector.CureAffector.ICure;
 
 public class Shit implements IBehaviour {
 
     private ILog log;
-    private ICure cure;
 
     public Shit() {
-        CureFactory cureFactory = new CureFactory();
-        cure = cureFactory.getCure(Cures.SHIT);
     }
 
     @Override
@@ -24,15 +20,12 @@ public class Shit implements IBehaviour {
 
     @Override
     public void doSomething(IBoardElement boardElement) {
-        boardElement.interact(cure);
+        CureFactory cureFactory = new CureFactory();
+        ICure cure = cureFactory.getCure(Cures.SHIT);
+        cure.cure(boardElement);
         log = new BehaviourLog(boardElement);
-        String newLog = log.generateLog();
+        String newLog = log.generateLog(); //la variable se puede usar para printear
         Game.getInstance().addLog(log);
-    }
-
-    @Override
-    public IStrategy getStrategy() {
-        return null;
     }
 
     @Override
