@@ -22,7 +22,7 @@ public class InPain implements IState{
     private int mentalHealthMax;
 
     void InPain(){
-        name = States.INPAIN;
+        name = States.IN_PAIN;
         age = 0;
         liquidLevel = 0;
         solidLevel = 0;

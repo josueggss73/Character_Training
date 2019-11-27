@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Character_Training:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Character_Training_jar</output-path>
+    <root id="archive" name="Character_Training.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/resources/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Character_Training" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/CharacterCreationComponent.jar" path-in-jar="/" />
+      <element id="library" level="project" name="CharacterCreationComponent" />
+    </root>
+  </artifact>
+</component>

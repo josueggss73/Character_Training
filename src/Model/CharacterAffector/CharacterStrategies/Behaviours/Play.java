@@ -28,7 +28,7 @@ public class Play implements IBehaviour {
         ICure cure = cureFactory.getCure(Cures.GET_HAPPY);
         cure.cure(boardElement);
         log = new BehaviourLog(boardElement);
-        String newLog = log.generateLog(); //la variable se puede usar para printear
+        String newLog = log.generateLog(Strategies.PLAY.toString()); //la variable se puede usar para printear
         Game.getInstance().addLog(log);
     }
 

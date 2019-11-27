@@ -29,7 +29,7 @@ public class GetSick implements IBehaviour {
         ICure cure = cureFactory.getCure(Cures.ACCEPT_SICKNESS);
         cure.cure(boardElement);
         log = new BehaviourLog(boardElement);
-        String newLog = log.generateLog(); //la variable se puede usar para printear
+        String newLog = log.generateLog(Strategies.GET_SICK.toString()); //la variable se puede usar para printear
         Game.getInstance().addLog(log);
     }
 

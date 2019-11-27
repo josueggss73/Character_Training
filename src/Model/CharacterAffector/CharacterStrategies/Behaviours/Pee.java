@@ -28,7 +28,7 @@ public class Pee implements IBehaviour {
         ICure cure = cureFactory.getCure(Cures.LOOSE_LIQUID);
         cure.cure(boardElement);
         log = new BehaviourLog(boardElement);
-        String newLog = log.generateLog(); //la variable se puede usar para printear
+        String newLog = log.generateLog(Strategies.PEE.toString()); //la variable se puede usar para printear
         Game.getInstance().addLog(log);
     }
 

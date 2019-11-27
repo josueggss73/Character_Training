@@ -28,7 +28,7 @@ public class Fight implements IBehaviour {
         ICure cure = cureFactory.getCure(Cures.GET_HURT);
         cure.cure(boardElement);
         log = new BehaviourLog(boardElement);
-        String newLog = log.generateLog(); //la variable se puede usar para printear
+        String newLog = log.generateLog(Strategies.FIGHT.toString()); //la variable se puede usar para printear
         Game.getInstance().addLog(log);
     }
 

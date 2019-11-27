@@ -28,7 +28,7 @@ public class Die implements IBehaviour {
         ICure cure = cureFactory.getCure(Cures.LOOSE_LIFE);
         cure.cure(boardElement);
         log = new BehaviourLog(boardElement);
-        String newLog = log.generateLog(); //la variable se puede usar para printear
+        String newLog = log.generateLog(Strategies.DIE.toString()); //la variable se puede usar para printear
         Game.getInstance().addLog(log);
     }
 

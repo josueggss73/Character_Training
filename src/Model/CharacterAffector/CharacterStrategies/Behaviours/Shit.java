@@ -27,7 +27,7 @@ public class Shit implements IBehaviour {
         ICure cure = cureFactory.getCure(Cures.LOOSE_SOLIDS);
         cure.cure(boardElement);
         log = new BehaviourLog(boardElement);
-        String newLog = log.generateLog(); //la variable se puede usar para printear
+        String newLog = log.generateLog(Strategies.SHIT.toString()); //la variable se puede usar para printear
         Game.getInstance().addLog(log);
     }
 

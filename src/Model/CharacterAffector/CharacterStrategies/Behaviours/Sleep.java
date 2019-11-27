@@ -29,7 +29,7 @@ public class Sleep implements IBehaviour {
         ICure cure = cureFactory.getCure(Cures.REST);
         cure.cure(boardElement);
         log = new BehaviourLog(boardElement);
-        String newLog = log.generateLog(); //la variable se puede usar para printear
+        String newLog = log.generateLog(Strategies.SLEEP.toString()); //la variable se puede usar para printear
         Game.getInstance().addLog(log);
     }
 
