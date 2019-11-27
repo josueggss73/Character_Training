@@ -50,6 +50,8 @@ public class Game implements IModel{
     private ICureListing cellar;
     private ICureListing horchard;
 
+
+
     //falta implementar
     private Game() {
         singleton = null;
@@ -277,10 +279,6 @@ public class Game implements IModel{
         minutesPerDay = value;
     }
 
-    @Override
-    public IMemento getState() {
-        return null;
-    }
 
     private ICharacter searchAvailableGoku(int age){
         for (int i=0; i<availableCharacters.getSize();i++){

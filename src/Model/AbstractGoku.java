@@ -49,6 +49,8 @@ public  class AbstractGoku extends CharacterAbstract {
         this.sicknessProbability = sicknessProbability;
         this.physicalHealthMax = physicalHealthMax;
         this.mentalHealthMax = mentalHealthMax;
+        this.currentEnemy = null;
+        this.currentCure = null;
     }
 
     @Override
@@ -357,5 +359,21 @@ public  class AbstractGoku extends CharacterAbstract {
         sumStarveLevel(10);
         sumThirstLevel(10);
         sumFatigueLevel(50);
+    }
+
+    public AbstractGoku getCurrentEnemy() {
+        return currentEnemy;
+    }
+
+    public void setCurrentEnemy(AbstractGoku currentEnemy) {
+        this.currentEnemy = currentEnemy;
+    }
+
+    public ICure getCurrentCure() {
+        return currentCure;
+    }
+
+    public void setCurrentCure(ICure currentCure) {
+        this.currentCure = currentCure;
     }
 }
