@@ -32,7 +32,7 @@ public class StateFactory {
                 return new Dehydrated();
             case INJURED:
                 return new Injured();
-            case INPAIN:
+            case IN_PAIN:
                 return new InPain();
             case DEFAULT:
                 return new DefaultState();
