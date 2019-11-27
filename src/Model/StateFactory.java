@@ -32,6 +32,8 @@ public class StateFactory {
                 return new Dehydrated();
             case INJURED:
                 return new Injured();
+            case INPAIN:
+                return new InPain();
             case DEFAULT:
                 return new DefaultState();
             default:
