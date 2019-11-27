@@ -10,12 +10,16 @@ import BoardElement.Tools.Concrete.Skill;
 import BoardElement.Tools.Concrete.Weapon;
 import BoardElement.Tools.ITool;
 import BoardElement.Tools.IToolListing;
+import BoardElement.Tools.ToolFactory;
+import BoardElement.Tools.ToolListingFactory;
 import Media.IMediaElement;
 import Media.IMediaListing;
 import Media.MediaElementFactory;
 import Media.MediaListingFactory;
 import Model.CharacterAffector.CharacterStrategies.ILog;
+import Model.CharacterAffector.CharacterStrategies.Strategies;
 import Model.CharacterAffector.IStateListing;
+import Model.CharacterAffector.IStrategy;
 import Model.CharacterAffector.IStrategyListing;
 import StatesAffector.CureAffector.CureArray;
 import StatesAffector.ICureListing;
@@ -67,24 +71,138 @@ public class Game implements IModel{
     public void readMemory() {
         MediaListingFactory mediaListingFactory = (MediaListingFactory) creationAPI.getCharacterCreationComponent(CharacterCreationComponent.MEDIA_LISTING_FACTORY);
         MediaElementFactory mediaElementFactory = (MediaElementFactory) creationAPI.getCharacterCreationComponent(CharacterCreationComponent.MEDIA_ELEMENT_FACTORY);
+        ToolListingFactory mediaToolFactory = (ToolListingFactory) creationAPI.getCharacterCreationComponent(CharacterCreationComponent.TOOL_LISTING_FACTORY);
 
-        IMediaListing imagesCharacter = mediaListingFactory.getMediaListing(0);
-        IMediaElement imageCharacterLvl0= mediaElementFactory.getMedia(0);
-        imageCharacterLvl0.setPath("");
-        IMediaElement imageCharacterLvl1 = mediaElementFactory.getMedia(0);
-        imageCharacterLvl1.setPath("");
-        IMediaElement imageCharacterLvl2 = mediaElementFactory.getMedia(0);
-        imageCharacterLvl2.setPath("");
-        imagesCharacter.loadMedia(imageCharacterLvl0);
-        imagesCharacter.loadMedia(imageCharacterLvl1);
-        imagesCharacter.loadMedia(imageCharacterLvl2);
+        //-------------------------------------------------------------------------------------------------------------------
+        IMediaListing imagesCharacterGoku = mediaListingFactory.getMediaListing(0);
+        IMediaElement imageCharacterGoku= mediaElementFactory.getMedia(0);
+        imageCharacterGoku.setPath("/images/goku.png");
+        imagesCharacterGoku.loadMedia(imageCharacterGoku);
 
-        CharacterBasic.CharacterBasicBuilder characterBasicBuilder = new CharacterBasic.CharacterBasicBuilder();
-        characterBasicBuilder.setDecrementableLife(10).setDefaultLife(10).setFields(10).setHitsPerUnit(10)
-                .setLevel(10).setMinPlayerLevelReq(10).setName("Goku").addImage(imageCharacterLvl0)
-                .addImage(imageCharacterLvl1).addImage(imageCharacterLvl2);
-        ICharacter character = characterBasicBuilder.build();
-        character.toString();
+        IToolListing toolListingGoku = mediaToolFactory.getToolListing(0);
+
+        IMediaElement imageSkillGoku= mediaElementFactory.getMedia(0);
+        imageSkillGoku.setPath("/images/punchGoku.png");
+
+        Skill.SkillBuilder punchGoku = new Skill.SkillBuilder();
+        punchGoku.setName("Punch").setDecrementableLife(10).setDefaultLife(10).setLevel(10).setMinCharacterLevelReq(10)
+                .setMinPlayerLevelReq(10).setReach(10).setSimpleUseDecrement(10).setType(1)
+                .addMedia(imageSkillGoku);
+        ITool toolSkillGoku = punchGoku.build();
+        toolListingGoku.addTool(toolSkillGoku);
+
+        AbstractGoku goku = new AbstractGoku("Goku",100,toolListingGoku,imagesCharacterGoku,
+                10,100,100,100,100,0,
+                100,100,100,100,100,
+                100,100,100);
+        System.out.printf("Soy:" + goku.getName() + "\n");
+        System.out.println("Tengo las imagenes:" + goku.getMedia().getImages().get(0).getPath());
+        System.out.println("Tengo una skill" + goku.getTools().getTool(0).getName());
+        System.out.println("Tengo una skill" + goku.getTools().getTool(0).getMediaListing().getImages().get(0).getPath());
+        //-------------------------------------------------------------------------------------------------------------------
+
+        availableCharacters.addCharacter(goku);
+
+        //-------------------------------------------------------------------------------------------------------------------
+        IMediaListing imagesCharacterGoku2 = mediaListingFactory.getMediaListing(0);
+        IMediaElement imageCharacterGoku2= mediaElementFactory.getMedia(0);
+        imageCharacterGoku2.setPath("/images/goku.png");
+        imagesCharacterGoku2.loadMedia(imageCharacterGoku2);
+
+        IToolListing toolListingGoku2 = mediaToolFactory.getToolListing(0);
+
+        IMediaElement imageSkillGoku2= mediaElementFactory.getMedia(0);
+        imageSkillGoku2.setPath("/images/punchGoku.png");
+
+        Skill.SkillBuilder punchGoku2 = new Skill.SkillBuilder();
+        punchGoku2.setName("Punch2").setDecrementableLife(10).setDefaultLife(10).setLevel(10).setMinCharacterLevelReq(10)
+                .setMinPlayerLevelReq(10).setReach(10).setSimpleUseDecrement(10).setType(1)
+                .addMedia(imageSkillGoku2);
+        ITool toolSkillGoku2 = punchGoku2.build();
+        toolListingGoku2.addTool(toolSkillGoku2);
+
+        AbstractGoku goku2 = new AbstractGoku("Goku2",100,toolListingGoku2,imagesCharacterGoku2,
+                10,100,100,100,100,0,
+                100,100,100,100,100,
+                100,100,100);
+        System.out.printf("Soy:" + goku2.getName() + "\n");
+        System.out.println("Tengo las imagenes:" + goku2.getMedia().getImages().get(0).getPath());
+        System.out.println("Tengo una skill" + goku2.getTools().getTool(0).getName());
+        System.out.println("Tengo una skill" + goku2.getTools().getTool(0).getMediaListing().getImages().get(0).getPath());
+        //-------------------------------------------------------------------------------------------------------------------
+
+        availableCharacters.addCharacter(goku2);
+
+        //-------------------------------------------------------------------------------------------------------------------
+        IMediaListing imagesCharacterGoku3 = mediaListingFactory.getMediaListing(0);
+        IMediaElement imageCharacterGoku3= mediaElementFactory.getMedia(0);
+        imageCharacterGoku3.setPath("/images/goku.png");
+        imagesCharacterGoku3.loadMedia(imageCharacterGoku3);
+
+        IToolListing toolListingGoku3 = mediaToolFactory.getToolListing(0);
+
+        IMediaElement imageSkillGoku3= mediaElementFactory.getMedia(0);
+        imageSkillGoku3.setPath("/images/punchGoku.png");
+
+        Skill.SkillBuilder punchGoku3 = new Skill.SkillBuilder();
+        punchGoku3.setName("Punch3").setDecrementableLife(10).setDefaultLife(10).setLevel(10).setMinCharacterLevelReq(10)
+                .setMinPlayerLevelReq(10).setReach(10).setSimpleUseDecrement(10).setType(1)
+                .addMedia(imageSkillGoku3);
+        ITool toolSkillGoku3 = punchGoku3.build();
+        toolListingGoku3.addTool(toolSkillGoku3);
+
+        AbstractGoku goku3 = new AbstractGoku("Goku3",100,toolListingGoku3,imagesCharacterGoku3,
+                10,100,100,100,100,0,
+                100,100,100,100,100,
+                100,100,100);
+        System.out.printf("Soy:" + goku3.getName() + "\n");
+        System.out.println("Tengo las imagenes:" + goku3.getMedia().getImages().get(0).getPath());
+        System.out.println("Tengo una skill" + goku3.getTools().getTool(0).getName());
+        System.out.println("Tengo una skill" + goku3.getTools().getTool(0).getMediaListing().getImages().get(0).getPath());
+        //-------------------------------------------------------------------------------------------------------------------
+
+        availableCharacters.addCharacter(goku3);
+
+        //-------------------------------------------------------------------------------------------------------------------
+        IMediaListing imagesCharacterVeggeta = mediaListingFactory.getMediaListing(0);
+        IMediaElement imageCharacterVeggeta= mediaElementFactory.getMedia(0);
+        imageCharacterVeggeta.setPath("/images/vegetta.png");
+        imagesCharacterVeggeta.loadMedia(imageCharacterVeggeta);
+
+        IToolListing toolListingVeggeta = mediaToolFactory.getToolListing(0);
+
+        IMediaElement imageSkillVeggeta= mediaElementFactory.getMedia(0);
+        imageSkillVeggeta.setPath("/images/punchVegetta.png");
+
+        Skill.SkillBuilder punchVeggeta = new Skill.SkillBuilder();
+        punchVeggeta.setName("Punch").setDecrementableLife(10).setDefaultLife(10).setLevel(10).setMinCharacterLevelReq(10)
+                .setMinPlayerLevelReq(10).setReach(10).setSimpleUseDecrement(10).setType(1)
+                .addMedia(imageSkillVeggeta);
+        ITool toolSkillVeggeta = punchVeggeta.build();
+        toolListingVeggeta.addTool(toolSkillVeggeta);
+
+        AbstractGoku veggeta = new AbstractGoku("Veggeta",100,toolListingVeggeta,imagesCharacterVeggeta,
+                10,100,100,100,100,0,
+                100,100,100,100,100,
+                100,100,100);
+        System.out.printf("Soy:" + veggeta.getName() + "\n");
+        System.out.println("Tengo las imagenes:" + veggeta.getMedia().getImages().get(0).getPath());
+        System.out.println("Tengo una skill" + veggeta.getTools().getTool(0).getName());
+        System.out.println("Tengo una skill" + veggeta.getTools().getTool(0).getMediaListing().getImages().get(0).getPath());
+        //-------------------------------------------------------------------------------------------------------------------
+
+        StrategyFactory strategyFactory = new StrategyFactory();
+        for (int i = 0; i< Strategies.values().length; i++){
+            strategiesAvailable.addStrategy(strategyFactory.getStrategy(Strategies.values()[i]));
+            System.out.println("Estoy metiendo una nueva estrategia:" + strategyFactory.getStrategy(Strategies.values()[i]));
+        }
+
+        StateFactory stateFactory = new StateFactory();
+        for (int i = 0; i< States.values().length; i++){
+            healthStatesAvailable.addState(stateFactory.getState(States.values()[i]));
+            System.out.println("Estoy metiendo un nuevo estado:" + stateFactory.getState(States.values()[i]));
+        }
+
     }
 
     @Override
