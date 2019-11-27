@@ -1,8 +1,8 @@
 package StatesAffector.Edibles.Foods;
 
+import BoardElement.IBoardElement;
 import StatesAffector.Edibles.IEdible;
 
 public interface IFood extends IEdible {
-    int getSolidContent();
-    int getLiquidContent();
+    void feed(IBoardElement boardElement);
 }
