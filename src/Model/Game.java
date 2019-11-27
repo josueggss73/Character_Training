@@ -8,9 +8,9 @@ import Model.CharacterAffector.IStrategyListing;
 
 public class Game implements IModel{
     private IBoardElement mainCharacter;
-    private IStrategyListing sicknessesAvailable;
-    private IStateListing healthStatesAvailable;
-    private IStrategyListing behavioursAvailable;
+    private IStrategyListing sicknessesAvailable; //for
+    private IStateListing healthStatesAvailable; //for
+    private IStrategyListing behavioursAvailable; //for
     private CharacterCreationComponent creationAPI;
     private Game singleton;
     private ControllerMessageHandler controllerMessageHandler;
