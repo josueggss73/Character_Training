@@ -51,7 +51,7 @@ public class Water implements IFood, IEdible, ICure {
             IState newState= stateFactory.getState(States.HIDRATED);
             //
             ((AbstractGoku) boardElement).getStates().addState(newState);
-            ((AbstractGoku) boardElement).getStates().deleteState(States.DEHIDRATED);
+            ((AbstractGoku) boardElement).getStates().deleteState(States.DEHYDRATED);
 
             //
             int newLiquidLevel = newState.getLiquidLevel();

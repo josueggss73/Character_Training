@@ -8,22 +8,28 @@ import Model.States;
 import Patterns.IPrototype;
 import StatesAffector.CureAffector.ICure;
 
-public class Squad implements IExercise, ICure {
-
+public class Jogging implements IExercise, ICure {
     @Override
     public void workout(IBoardElement boardElement) {
         if(boardElement instanceof AbstractGoku){
             StateFactory stateFactory = new StateFactory();
-            IState newState= stateFactory.getState(States.INJURED);
-            IState newState2= stateFactory.getState(States.HAPPY);
+
+            IState newState= stateFactory.getState(States.HAPPY);
+            IState newState2= stateFactory.getState(States.ENERGIZED);
+            IState newState3= stateFactory.getState(States.STARVING);
+
+
+
             //
             ((AbstractGoku) boardElement).getStates().addState(newState);
             ((AbstractGoku) boardElement).getStates().addState(newState2);
+            ((AbstractGoku) boardElement).getStates().addState(newState3);
 
 
             ((AbstractGoku) boardElement).getStates().deleteState(States.GLUTTONY);
             ((AbstractGoku) boardElement).getStates().deleteState(States.SAD);
-
+            ((AbstractGoku) boardElement).getStates().deleteState(States.TIRED);
+            ((AbstractGoku) boardElement).getStates().deleteState(States.IN_PAIN);
 
             //
             int newLiquidLevel = newState.getLiquidLevel();
@@ -80,6 +86,11 @@ public class Squad implements IExercise, ICure {
     }
 
     @Override
+    public void interact(IBoardElement iBoardElement) {
+
+    }
+
+    @Override
     public IPrototype clone() {
         return null;
     }
@@ -87,10 +98,5 @@ public class Squad implements IExercise, ICure {
     @Override
     public IPrototype deepClone() {
         return null;
-    }
-
-    @Override
-    public void interact(IBoardElement iBoardElement) {
-
     }
 }
