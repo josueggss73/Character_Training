@@ -24,6 +24,8 @@ public class StateFactory {
                 return new Satisfied();
             case HIDRATED:
                 return new Hidrated();
+            case UNSATISFIED:
+                return new Unsatisfied();
             default:
                 return new DefaultState();
         }
