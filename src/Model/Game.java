@@ -341,10 +341,6 @@ public class Game implements IModel{
         return horchard;
     }
 
-    public CareTaker getCareTaker() {
-        return careTaker;
-    }
-
     private ICharacter searchAvailableGoku(int age){
         for (int i=0; i<availableCharacters.getSize();i++){
             AbstractGoku abstractGokuTemp = (AbstractGoku) availableCharacters.getCharacter(i);
@@ -358,6 +354,10 @@ public class Game implements IModel{
     private void cloneGokuFeatures(ICharacter newGoku){
         mainCharacter.setName(newGoku.getName());
         mainCharacter.setMedia(newGoku.getMedia());
+    }
+
+    public CareTaker getCareTaker() {
+        return careTaker;
     }
 
     public Memento save(){
@@ -377,6 +377,7 @@ public class Game implements IModel{
 
     public void restore(Memento memento){
         //implementar
-        careTaker.get();
+        IModel restoredGame = (IModel) careTaker.get();
+
     }
 }
