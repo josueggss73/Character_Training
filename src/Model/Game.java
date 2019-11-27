@@ -1,6 +1,7 @@
 package Model;
 
 import BoardElement.Character.CharacterListingFactory;
+import BoardElement.Character.Concrete.CharacterArray;
 import BoardElement.Character.Concrete.CharacterBasic;
 import BoardElement.Character.ICharacter;
 import BoardElement.Character.ICharacterListing;
@@ -17,6 +18,8 @@ import Media.MediaListingFactory;
 import Model.CharacterAffector.CharacterStrategies.ILog;
 import Model.CharacterAffector.IStateListing;
 import Model.CharacterAffector.IStrategyListing;
+import Model.CharacterAffector.StateArray;
+import Model.CharacterAffector.StrategyArray;
 import StatesAffector.CureAffector.CureArray;
 import StatesAffector.ICureListing;
 
@@ -53,6 +56,10 @@ public class Game implements IModel{
         timeHour = "00:00:01";
         cellar = new CureArray();
         horchard = new CureArray();
+
+        availableCharacters = new CharacterArray();
+        strategiesAvailable = new StrategyArray();
+        healthStatesAvailable = new StateArray();
         readMemory();
     }
 
@@ -131,6 +138,10 @@ public class Game implements IModel{
             year++;
         }
         ((AbstractGoku) mainCharacter).endDay();
+        ICharacter newGoku = searchAvailableGoku(year);
+        if(newGoku!=null){
+            cloneGokuFeatures(newGoku);
+        }
     }
 
     @Override
@@ -143,4 +154,23 @@ public class Game implements IModel{
         minutesPerDay = value;
     }
 
+    @Override
+    public IMemento getState() {
+        return null;
+    }
+
+    private ICharacter searchAvailableGoku(int age){
+        for (int i=0; i<availableCharacters.getSize();i++){
+            AbstractGoku abstractGokuTemp = (AbstractGoku) availableCharacters.getCharacter(i);
+            if(age == abstractGokuTemp.getAge()){
+                return abstractGokuTemp;
+            }
+        }
+        return null;
+    }
+
+    private void cloneGokuFeatures(ICharacter newGoku){
+        mainCharacter.setName(newGoku.getName());
+        mainCharacter.setMedia(newGoku.getMedia());
+    }
 }
