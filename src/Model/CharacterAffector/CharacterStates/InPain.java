@@ -21,7 +21,7 @@ public class InPain implements IState{
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void InPain(){
+    public InPain(){
         name = States.IN_PAIN;
         age = 0;
         liquidLevel = 0;

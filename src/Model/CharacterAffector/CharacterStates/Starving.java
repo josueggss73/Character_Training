@@ -21,7 +21,7 @@ public class Starving implements IState{
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Starving(){
+    public Starving(){
         name = States.STARVING;
         age = 0;
         liquidLevel = 0;

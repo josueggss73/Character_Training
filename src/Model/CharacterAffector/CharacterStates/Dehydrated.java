@@ -21,7 +21,7 @@ public class Dehydrated implements IState{
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Dehydrated(){
+    public Dehydrated(){
         name = States.DEHYDRATED;
         age = 0;
         liquidLevel = 0;

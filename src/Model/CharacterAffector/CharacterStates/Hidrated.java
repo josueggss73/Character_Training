@@ -21,7 +21,7 @@ public class Hidrated implements IState {
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Satisfied(){
+    public Hidrated(){
         name = States.HIDRATED;
         age = 0;
         liquidLevel = 0;

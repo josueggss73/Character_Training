@@ -24,7 +24,7 @@ public class Happy implements IState {
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Happy(){
+    public Happy(){
         name = States.HAPPY;
         age = 0;
         liquidLevel = 0;

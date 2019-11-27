@@ -21,7 +21,7 @@ public class Gluttony implements IState {
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Gluttony(){
+    public Gluttony(){
         name = States.GLUTTONY;
         age = 0;
         liquidLevel = 0;

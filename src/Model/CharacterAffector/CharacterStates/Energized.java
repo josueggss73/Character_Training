@@ -21,7 +21,7 @@ public class Energized implements IState{
     private int physicalHealthMax;
     private int mentalHealthMax;
 
-    void Energized(){
+    public Energized(){
         name = States.ENERGIZED;
         age = 0;
         liquidLevel = 0;
