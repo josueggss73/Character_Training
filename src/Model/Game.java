@@ -110,6 +110,7 @@ public class Game implements IModel{
         //-------------------------------------------------------------------------------------------------------------------
 
         availableCharacters.addCharacter(goku);
+        mainCharacter = goku;
 
         //-------------------------------------------------------------------------------------------------------------------
         IMediaListing imagesCharacterGoku2 = mediaListingFactory.getMediaListing(0);
