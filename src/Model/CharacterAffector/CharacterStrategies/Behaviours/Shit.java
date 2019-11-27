@@ -11,7 +11,6 @@ public class Shit implements IBehaviour {
 
     private ILog log;
     private ICure cure;
-    //healthstates?
 
     public Shit() {
         CureFactory cureFactory = new CureFactory();
