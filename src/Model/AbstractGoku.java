@@ -27,6 +27,8 @@ public abstract class AbstractGoku extends CharacterAbstract {
     private int physicalHealthMax;
     private int mentalHealthMax;
 
+    private AbstractGoku currentEnemy;
+
     public AbstractGoku(int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing healthStates, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
         this.age = age;
         this.liquidLevel = liquidLevel;
