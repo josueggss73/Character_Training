@@ -1,0 +1,107 @@
+package StatesAffector.Exercises;
+
+import BoardElement.IBoardElement;
+import Model.AbstractGoku;
+import Model.CharacterAffector.CharacterStates.IState;
+import Model.StateFactory;
+import Model.States;
+import Patterns.IPrototype;
+import StatesAffector.CureAffector.ICure;
+
+public class Crossfit implements IExercise, ICure {
+    @Override
+    public void workout(IBoardElement boardElement) {
+
+            if(boardElement instanceof AbstractGoku) {
+                StateFactory stateFactory = new StateFactory();
+                IState newState = stateFactory.getState(States.INJURED);
+                IState newState2 = stateFactory.getState(States.IN_PAIN);
+                IState newState3 = stateFactory.getState(States.IN_PAIN);
+                IState newState4 = stateFactory.getState(States.HAPPY);
+                IState newState5 = stateFactory.getState(States.DEHYDRATED);
+                IState newState6 = stateFactory.getState(States.TIRED);
+                IState newState7 = stateFactory.getState(States.STARVING);
+                //
+                ((AbstractGoku) boardElement).getStates().addState(newState);
+                ((AbstractGoku) boardElement).getStates().addState(newState2);
+                ((AbstractGoku) boardElement).getStates().addState(newState3);
+                ((AbstractGoku) boardElement).getStates().addState(newState4);
+                ((AbstractGoku) boardElement).getStates().addState(newState5);
+                ((AbstractGoku) boardElement).getStates().addState(newState6);
+                ((AbstractGoku) boardElement).getStates().addState(newState7);
+
+
+
+                ((AbstractGoku) boardElement).getStates().deleteState(States.GLUTTONY);
+                ((AbstractGoku) boardElement).getStates().deleteState(States.SAD);
+                ((AbstractGoku) boardElement).getStates().deleteState(States.ENERGIZED);
+
+
+                //
+                int newLiquidLevel = newState.getLiquidLevel();
+                ((AbstractGoku) boardElement).sumLiquidLevel(newLiquidLevel);
+
+                int newSolidLevel = newState.getSolidLevel();
+                ((AbstractGoku) boardElement).sumSolidLevel(newSolidLevel);
+
+                int newStarveLevel = newState.getStarveLevel();
+                ((AbstractGoku) boardElement).sumStarveLevel(newStarveLevel);
+
+                int newThirstLevel = newState.getThirstLevel();
+                ((AbstractGoku) boardElement).sumThirstLevel(newThirstLevel);
+
+                int newFatigueLevel = newState.getFatigueLevel();
+                ((AbstractGoku) boardElement).sumFatigueLevel(newFatigueLevel);
+
+                int newHappinessLevel = newState.getHappinessLevel();
+                ((AbstractGoku) boardElement).sumHappinessLevel(newHappinessLevel);
+
+                int newPhysicalHealth = newState.getPhysicalHealth();
+                ((AbstractGoku) boardElement).sumPhysicalHealth(newPhysicalHealth);
+
+                int newMentalHealth = newState.getMentalHealth();
+                ((AbstractGoku) boardElement).sumMentalHealth(newMentalHealth);
+
+                int newFitnessLevel = newState.getFitnessLevel();
+                ((AbstractGoku) boardElement).sumFitnessLevel(newFitnessLevel);
+
+                int newSpeed = newState.getSpeed();
+                ((AbstractGoku) boardElement).sumSpeed(newSpeed);
+
+                int newSicknessProbability = newState.getSicknessProbability();
+                ((AbstractGoku) boardElement).sumSicknessProbability(newSicknessProbability);
+
+                int newPhysicalHealthMax = newState.getPhysicalHealthMax();
+                ((AbstractGoku) boardElement).sumPhysicalHealthMax(newPhysicalHealthMax);
+
+                int newMentalHealthMax = newState.getMentalHealthMax();
+                ((AbstractGoku) boardElement).sumMentalHealthMax(newMentalHealthMax);
+
+            }
+    }
+
+    @Override
+    public IBoardElement cure(IBoardElement boardElement) {
+        return null;
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public void interact(IBoardElement iBoardElement) {
+
+    }
+
+    @Override
+    public IPrototype clone() {
+        return null;
+    }
+
+    @Override
+    public IPrototype deepClone() {
+        return null;
+    }
+}
