@@ -6,6 +6,7 @@ import BoardElement.Tools.IToolListing;
 import Media.IMediaListing;
 import Model.CharacterAffector.IStateListing;
 import Model.CharacterAffector.IStrategyListing;
+import StatesAffector.CureAffector.ICure;
 
 public abstract class AbstractGoku extends CharacterAbstract {
     private int age;
@@ -16,20 +17,23 @@ public abstract class AbstractGoku extends CharacterAbstract {
     private int fatigueLevel;
     private int happinessLevel;
     private int physicalHealth;
-    private int mentalHealth; //sad y happy?
+    private int mentalHealth;
     private int fitnessLevel;
     private int speed;
+    private int sicknessProbability;
+
     private IStateListing states;
     private IStrategyListing behaviours;
     private IStrategyListing sicknesses;
-    private int sicknessProbability;
 
     private int physicalHealthMax;
     private int mentalHealthMax;
 
     private AbstractGoku currentEnemy;
+    private ICure currentCure;
 
-    public AbstractGoku(int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing states, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
+    public AbstractGoku(String name, float defaultLife, IToolListing tools, IMediaListing media, int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
+        super(name, defaultLife, tools, media);
         this.age = age;
         this.liquidLevel = liquidLevel;
         this.solidLevel = solidLevel;
@@ -41,72 +45,6 @@ public abstract class AbstractGoku extends CharacterAbstract {
         this.mentalHealth = mentalHealth;
         this.fitnessLevel = fitnessLevel;
         this.speed = speed;
-        this.states = states;
-        this.behaviours = behaviours;
-        this.sicknesses = sicknesses;
-        this.sicknessProbability = sicknessProbability;
-        this.physicalHealthMax = physicalHealthMax;
-        this.mentalHealthMax = mentalHealthMax;
-    }
-
-    public AbstractGoku(String name, float defaultLife, float decrementableLife, IToolListing tools, float level, float minPlayerLevelReq, float hitsPerUnit, int fields, int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing states, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
-        super(name, defaultLife, decrementableLife, tools, level, minPlayerLevelReq, hitsPerUnit, fields);
-        this.age = age;
-        this.liquidLevel = liquidLevel;
-        this.solidLevel = solidLevel;
-        this.starveLevel = starveLevel;
-        this.thirstLevel = thirstLevel;
-        this.fatigueLevel = fatigueLevel;
-        this.happinessLevel = happinessLevel;
-        this.physicalHealth = physicalHealth;
-        this.mentalHealth = mentalHealth;
-        this.fitnessLevel = fitnessLevel;
-        this.speed = speed;
-        this.states = states;
-        this.behaviours = behaviours;
-        this.sicknesses = sicknesses;
-        this.sicknessProbability = sicknessProbability;
-        this.physicalHealthMax = physicalHealthMax;
-        this.mentalHealthMax = mentalHealthMax;
-    }
-
-    public AbstractGoku(String name, float defaultLife, float decrementableLife, IToolListing tools, float level, float minPlayerLevelReq, float hitsPerUnit, int fields, IMediaListing media, int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing states, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
-        super(name, defaultLife, decrementableLife, tools, level, minPlayerLevelReq, hitsPerUnit, fields, media);
-        this.age = age;
-        this.liquidLevel = liquidLevel;
-        this.solidLevel = solidLevel;
-        this.starveLevel = starveLevel;
-        this.thirstLevel = thirstLevel;
-        this.fatigueLevel = fatigueLevel;
-        this.happinessLevel = happinessLevel;
-        this.physicalHealth = physicalHealth;
-        this.mentalHealth = mentalHealth;
-        this.fitnessLevel = fitnessLevel;
-        this.speed = speed;
-        this.states = states;
-        this.behaviours = behaviours;
-        this.sicknesses = sicknesses;
-        this.sicknessProbability = sicknessProbability;
-        this.physicalHealthMax = physicalHealthMax;
-        this.mentalHealthMax = mentalHealthMax;
-    }
-
-    public AbstractGoku(String name, float defaultLife, int age, int liquidLevel, int solidLevel, int starveLevel, int thirstLevel, int fatigueLevel, int happinessLevel, int physicalHealth, int mentalHealth, int fitnessLevel, int speed, IStateListing states, IStrategyListing behaviours, IStrategyListing sicknesses, int sicknessProbability, int physicalHealthMax, int mentalHealthMax) {
-        super(name, defaultLife);
-        this.age = age;
-        this.liquidLevel = liquidLevel;
-        this.solidLevel = solidLevel;
-        this.starveLevel = starveLevel;
-        this.thirstLevel = thirstLevel;
-        this.fatigueLevel = fatigueLevel;
-        this.happinessLevel = happinessLevel;
-        this.physicalHealth = physicalHealth;
-        this.mentalHealth = mentalHealth;
-        this.fitnessLevel = fitnessLevel;
-        this.speed = speed;
-        this.states = states;
-        this.behaviours = behaviours;
-        this.sicknesses = sicknesses;
         this.sicknessProbability = sicknessProbability;
         this.physicalHealthMax = physicalHealthMax;
         this.mentalHealthMax = mentalHealthMax;
