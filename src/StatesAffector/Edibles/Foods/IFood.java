@@ -1,6 +1,6 @@
-package StatesAffector;
+package StatesAffector.Edibles.Foods;
 
-import StatesAffector.IEdible;
+import StatesAffector.Edibles.IEdible;
 
 public interface IFood extends IEdible {
     int getSolidContent();
