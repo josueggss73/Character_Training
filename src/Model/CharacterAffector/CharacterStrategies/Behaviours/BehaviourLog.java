@@ -17,7 +17,7 @@ public class BehaviourLog implements ILog {
 
     public BehaviourLog(IBoardElement character) {
         this.character = character;
-        day = Game.getInstance().getTimeDay();
+        day = Game.getInstance().getDay();
         hour = Game.getInstance().getTimeHour();
     }
 

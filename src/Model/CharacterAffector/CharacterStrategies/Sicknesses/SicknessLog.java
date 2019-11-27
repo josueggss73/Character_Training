@@ -14,7 +14,7 @@ public class SicknessLog implements ILog {
 
     public SicknessLog(IBoardElement character, IStateListing states) {
         this.character = character;
-        day = Game.getInstance().getTimeDay();
+        day = Game.getInstance().getDay();
         hour = Game.getInstance().getTimeHour();
         this.states = states;
     }

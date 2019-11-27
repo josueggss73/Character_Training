@@ -1,10 +1,19 @@
 package Model;
 
 import BoardElement.Character.CharacterListingFactory;
+import BoardElement.Character.Concrete.CharacterBasic;
 import BoardElement.Character.ICharacter;
 import BoardElement.Character.ICharacterListing;
 import BoardElement.CharacterCreationComponent;
 import BoardElement.IBoardElement;
+import BoardElement.Tools.Concrete.Skill;
+import BoardElement.Tools.Concrete.Weapon;
+import BoardElement.Tools.ITool;
+import BoardElement.Tools.IToolListing;
+import Media.IMediaElement;
+import Media.IMediaListing;
+import Media.MediaElementFactory;
+import Media.MediaListingFactory;
 import Model.CharacterAffector.CharacterStrategies.ILog;
 import Model.CharacterAffector.IStateListing;
 import Model.CharacterAffector.IStrategyListing;
@@ -44,6 +53,7 @@ public class Game implements IModel{
         timeHour = "00:00:01";
         cellar = new CureArray();
         horchard = new CureArray();
+        readMemory();
     }
 
     public static IModel getInstance() {
@@ -55,7 +65,26 @@ public class Game implements IModel{
 
     @Override
     public void readMemory() {
+        MediaListingFactory mediaListingFactory = (MediaListingFactory) creationAPI.getCharacterCreationComponent(CharacterCreationComponent.MEDIA_LISTING_FACTORY);
+        MediaElementFactory mediaElementFactory = (MediaElementFactory) creationAPI.getCharacterCreationComponent(CharacterCreationComponent.MEDIA_ELEMENT_FACTORY);
 
+        IMediaListing imagesCharacter = mediaListingFactory.getMediaListing(0);
+        IMediaElement imageCharacterLvl0= mediaElementFactory.getMedia(0);
+        imageCharacterLvl0.setPath("");
+        IMediaElement imageCharacterLvl1 = mediaElementFactory.getMedia(0);
+        imageCharacterLvl1.setPath("");
+        IMediaElement imageCharacterLvl2 = mediaElementFactory.getMedia(0);
+        imageCharacterLvl2.setPath("");
+        imagesCharacter.loadMedia(imageCharacterLvl0);
+        imagesCharacter.loadMedia(imageCharacterLvl1);
+        imagesCharacter.loadMedia(imageCharacterLvl2);
+
+        CharacterBasic.CharacterBasicBuilder characterBasicBuilder = new CharacterBasic.CharacterBasicBuilder();
+        characterBasicBuilder.setDecrementableLife(10).setDefaultLife(10).setFields(10).setHitsPerUnit(10)
+                .setLevel(10).setMinPlayerLevelReq(10).setName("Goku").addImage(imageCharacterLvl0)
+                .addImage(imageCharacterLvl1).addImage(imageCharacterLvl2);
+        ICharacter character = characterBasicBuilder.build();
+        character.toString();
     }
 
     @Override
