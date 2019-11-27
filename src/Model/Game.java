@@ -11,7 +11,7 @@ public class Game implements IModel{
     private IStrategyListing strategiesAvailable; //for
     private IStateListing healthStatesAvailable; //for
     private CharacterCreationComponent creationAPI;
-    private Game singleton;
+    private static Game singleton;
     private ControllerMessageHandler controllerMessageHandler;
     private ILogListing logs;
     private int timeDay;
@@ -19,10 +19,14 @@ public class Game implements IModel{
 
     //falta implementar
     private Game() {
+        singleton = null;
     }
 
     public static IModel getInstance() {
-        return null;
+        if(singleton == null){
+            singleton = new Game();
+        }
+        return singleton;
     }
 
     @Override
